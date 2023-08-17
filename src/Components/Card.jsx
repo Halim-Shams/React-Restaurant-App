@@ -1,8 +1,10 @@
 import React from 'react';
+import tw from 'tailwind-styled-components';
 
 const Card = () => {
 	return (
-		<div className='group/card hover:shadow-md transition-shadow bg-gray-100/70 rounded-md flex flex-col gap-2'>
+		<div className='group/card hover:shadow-md transition-shadow bg-gray-100/70 rounded-md flex flex-col gap-2 relative'>
+			<New>NEW</New>
 			<div className='overflow-hidden w-full h-40 rounded-t-md'>
 				<img
 					className='group-hover/card:scale-105 transition object-cover'
@@ -25,5 +27,25 @@ const Card = () => {
 		</div>
 	);
 };
+
+const New = tw.div`
+z-10 
+flex 
+items-center 
+justify-center 
+w-11 
+h-11 
+text-white 
+text-sm 
+absolute 
+bg-gradient-to-tl 
+from-yellow-200 
+via-yellow-400 
+to-yellow-600
+rounded-full
+font-medium
+-top-5
+-right-5
+`;
 
 export default Card;
