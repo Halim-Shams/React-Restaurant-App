@@ -1,18 +1,20 @@
 import React from 'react';
 import Card from './Card';
 
-const Menu = () => {
+const Menu = ({data}) => {
+	console.log(data);
 	return (
 		<div className='grid grid-cols-3 gap-10 w-9/12'>
-			<Card />
-			<Card />
-			<Card />
-			<Card />
-			<Card />
-			<Card />
-			<Card />
-			<Card />
-			<Card />
+			{data.map((item) => (
+				<Card
+					image={item.image}
+					name={item.name}
+					price={item.price}
+					detail={item.detail}
+					category={item.category}
+					isNew={item.isNew}
+				/>
+			))}
 		</div>
 	);
 };
