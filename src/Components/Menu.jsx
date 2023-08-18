@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Data from '../data';
+import {motion} from 'framer-motion';
 import Card from './Card';
 import Category from './Category';
 
@@ -19,7 +19,7 @@ const Menu = ({data}) => {
 	return (
 		<>
 			<Category categories={allCategories} filterItems={filterItems} />
-			<div className='grid grid-cols-3 gap-10 w-9/12'>
+			<div layout className='grid grid-cols-3 gap-10 w-9/12'>
 				{items.map((item, index) => (
 					<Card
 						key={index}

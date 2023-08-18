@@ -1,9 +1,12 @@
 import React from 'react';
+import {motion} from 'framer-motion';
 import tw from 'tailwind-styled-components';
 
 const Card = ({image, name, detail, price, category, isNew}) => {
 	return (
-		<div className='group/card hover:shadow-md transition-shadow bg-gray-100/70 rounded-md flex flex-col gap-2 relative'>
+		<div
+			layout
+			className='group/card hover:shadow-md transition-shadow bg-gray-100/70 rounded-md flex flex-col gap-2 relative'>
 			{isNew && <New>NEW</New>}
 			<div className='overflow-hidden w-full h-48 rounded-t-md'>
 				<img
