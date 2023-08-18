@@ -14,7 +14,7 @@ const Card = ({image, name, detail, price, category, isNew}) => {
 			</div>
 			<div className='flex flex-col gap-1.5 px-3 pb-3'>
 				<div className='flex justify-between'>
-					<p className='font-bold text-gray-700 capitalize'>{name}</p>
+					<p className='font-bold text-lg text-gray-700 capitalize'>{name}</p>
 					<p className='font-medium text-lg font-serif text-yellow-500'>
 						${price}
 					</p>

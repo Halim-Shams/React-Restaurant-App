@@ -1,21 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Data from '../data';
 import Card from './Card';
+import Category from './Category';
 
 const Menu = ({data}) => {
-	console.log(data);
+	const [items, setItems] = useState(data);
+	console.log(items);
+
+	const filterItems = (ctg) => {
+		if (ctg === 'all') {
+			setItems(data);
+		} else {
+			setItems(data.filter((item) => item.category === ctg));
+		}
+	};
+
+	const allCategories = ['all', ...new Set(data.map((item) => item.category))];
 	return (
-		<div className='grid grid-cols-3 gap-10 w-9/12'>
-			{data.map((item) => (
-				<Card
-					image={item.image}
-					name={item.name}
-					price={item.price}
-					detail={item.detail}
-					category={item.category}
-					isNew={item.isNew}
-				/>
-			))}
-		</div>
+		<>
+			<Category categories={allCategories} filterItems={filterItems} />
+			<div className='grid grid-cols-3 gap-10 w-9/12'>
+				{items.map((item, index) => (
+					<Card
+						key={index}
+						image={item.image}
+						name={item.name}
+						price={item.price}
+						detail={item.detail}
+						category={item.category}
+						isNew={item.isNew}
+					/>
+				))}
+			</div>
+		</>
 	);
 };
 
